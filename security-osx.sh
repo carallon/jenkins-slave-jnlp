@@ -46,6 +46,9 @@ while [ $# -gt 0 ]; do
 			;;
 		--service=*)
 			SERVICE="${1#*=}"
+			# strip leading and trailing double quotes
+			SERVICE="${SERVICE%\"}"
+			SERVICE="${SERVICE#\"}"
 			;;
 		--password=*)
 			PASSWORD=${1#*=}
