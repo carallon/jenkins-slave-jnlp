@@ -2,7 +2,7 @@
 #
 # Install and configure the Jenkins JNLP Slave
 #
-# See https://github.com/antonyx/jenkins-slave-jnlp for usage
+# See https://github.com/carallon/jenkins-slave-jnlp for usage
 
 set -u
 
@@ -23,7 +23,7 @@ KEYSTORE_PASS=""
 JAVA_TRUSTSTORE_PASS=""
 JAVA_ARGS=${JAVA_ARGS:-""}
 INSTALL_TMP=`mktemp -d -q -t org.jenkins-ci.slave.jnlp.XXXXXX`
-DOWNLOADS_PATH=https://raw.github.com/antonyx/jenkins-slave-jnlp/master
+DOWNLOADS_PATH=https://raw.github.com/carallon/jenkins-slave-jnlp/master
 SUDO_CMD="sudo"
 G_CONFIRM=${CONFIRM:-""}
 OS="`uname -s`"
@@ -550,8 +550,8 @@ cleanup() {
 }
 
 echo "
-        _          _   _              _ _  _ _    ___   ___ _              
-     _ | |___ _ _ | |_(_)_ _  ___  _ | | \| | |  | _ \ / __| |__ ___ _____ 
+        _          _   _              _ _  _ _    ___   ___ _
+     _ | |___ _ _ | |_(_)_ _  ___  _ | | \| | |  | _ \ / __| |__ ___ _____
     | || / -_) ' \| / / | ' \(_-< | || | .\` | |__|  _/ \__ \ / _\` \ V / -_)
      \__/\___|_||_|_\_\_|_||_/__/  \__/|_|\_|____|_|   |___/_\__,_|\_/\___|
 
