@@ -376,9 +376,13 @@ You will need to import your own developer certificates following these steps:
 
 create_keychain() {
 	local KEYCHAINS=${SERVICE_HOME}/Library/Keychains
+	local DARWIN_VERSION_MAJOR=` uname -r | sed 's|\([^.]\)\..*|\1|g' `
 	if [ ! -d ${KEYCHAINS} ]; then
 		sudo mkdir -p ${KEYCHAINS}
 		sudo chown -R ${SERVICE_USER}:${SERVICE_GROUP} ${KEYCHAINS}
+	fi
+	if [ $DARWIN_VERSION_MAJOR -ge 16 ]; then
+		OSX_KEYCHAIN="${OSX_KEYCHAIN}-db"
 	fi
 	if [ ! -f ${KEYCHAINS}/${OSX_KEYCHAIN} ]; then
 		sudo -i -u ${SERVICE_USER} security create-keychain -p ${OSX_KEYCHAIN_PASS} ${OSX_KEYCHAIN}

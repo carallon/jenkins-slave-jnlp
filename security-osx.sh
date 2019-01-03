@@ -21,6 +21,10 @@ CA_CERT=""
 AGENT=""
 DARWIN_VERSION_MAJOR=` uname -r | sed 's|\([^.]\)\..*|\1|g' `
 
+if [ $DARWIN_VERSION_MAJOR -ge 16 ]; then
+	OSX_KEYCHAIN="${OSX_KEYCHAIN}-db"
+fi
+
 if [ -f ~/Library/Keychains/.keychain_pass ]; then
 	chmod 400 ~/Library/Keychains/.keychain_pass
 	. ~/Library/Keychains/.keychain_pass
