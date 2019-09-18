@@ -80,6 +80,7 @@ while [ true ]; do
 done
 
 echo "Launching slave process at ${JENKINS_JNLP_URL}"
+export PATH=/usr/local/bin:$PATH
 RESULT=-1
 # If we use a trustStore for the Jenkins Master certificates, we need to pass it
 # and its password to the java process that runs the slave. The password is stored
